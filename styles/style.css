@@ -10,6 +10,19 @@ body{
     align-items: center;
     gap: 10px;
   }
+  .toggle-btn{
+    display: none;
+  }
+  .toggle-btn div{
+    background-color: black;
+    margin-top: 2px;
+    width: 30px;
+    height: 4px;
+    border-radius: 50px;
+  }
+  .toggle-show{
+    display: none;
+  }
   .page-name{
     font-size: 30px;
     font-weight: bold;
@@ -88,7 +101,8 @@ body{
   }
   .brands-logos{
     background-color: black;
-    display: flex;
+    display: none;
+    /* display: flex; */
     justify-content: space-between;
     align-items: center;
     margin-top: 0px;
@@ -347,8 +361,14 @@ width: 100%;          /* makes sure it’s responsive */
   .before-footer{
     justify-content: center;
     margin-top: 20px;
+    /* display: none; */
     display: flex;
     gap: 170px;
+  }
+  .responsive-footer-div{
+    display: flex;
+    gap: 170px;
+    justify-content: center;
   }
   .before-footer-box-one{
     width: 300px;

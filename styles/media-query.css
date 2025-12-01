@@ -1,0 +1,183 @@
+@media (max-width: 480px) {
+    body{
+        padding: 1px 5px;
+        margin: 5px 30px;
+      }
+    .page-nav{
+        display: flex;
+        justify-content: normal;
+        align-items: center;
+        gap: 10px;
+    }
+    .toggle-btn{
+        display: block;
+    }
+    .nav-lists{
+        display: none;
+    }
+    .page-name{
+        font-size: 25px;
+    }
+    .search-input{
+        width: 43vw;
+        padding: 5px 10px;
+    }
+    .cart-profile-icon{
+        gap: 10px;
+        font-size: 20px;
+    }
+    .toggle-show{
+        display: none;
+        position: absolute;
+        top: 25px;
+        left: 0;
+        background-color: gray;
+        width: 250px;
+        border-radius: 30px;
+    }
+    .toggle-show-lists{
+        list-style-type: none;
+        font-size: 30px;
+        line-height: 1.9;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        font-weight: 700;
+    }
+    .toggle-show-lists button{
+        width: 50%;
+        padding: 6px;
+    }
+    .page-title-memo{
+        font-size: 50px;
+    }
+    .page-title-memo-description{
+        margin-top: 10px;
+        font-size: 19px;
+    }
+    .main-page{
+        display: block;
+      }
+    .main-shop-now-btn{
+        width: 100%;
+        font-size: 18px;
+    }
+    .line-of-trustee{
+        margin-top: 30px;
+        justify-content: space-between;
+        justify-self: center;
+        gap: 0;
+    }
+    .line-of-trustee hr{
+        display: none;
+    }
+    .trustee2{
+        margin-top: 70px;
+    }
+    .main-img{
+        height: 400px;
+        overflow: hidden;
+        margin: 0;
+        width: 100%;
+    }
+    .new-arrivals-products, .top-selling-products{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        justify-content: center;
+    }
+    .new-arrivals-title-name, .top-selling-title-name{
+        font-size: 20px;
+    }
+    .dress-style-title{
+        text-align: center;
+        font-size: 30px;
+        margin: 0;
+      }
+    .top-style-pictures{
+        display: block;
+        margin-top: 10px;
+    }
+    .top-style-picture1, .top-style-picture2{
+        width: 100%;
+        height: 250px;
+        border: 1px solid gray;
+        border-radius: 10px;
+        margin-top: 10px;
+    }
+    .happy-customer-btns{
+        display: flex;
+        justify-content: normal;
+        gap: 10px;
+    }
+    .our-h-customer{
+        font-size: 28px;
+    }
+    .comment-box-line{
+        display: block;
+    }
+    .customers-comments-box{
+        width: 100%;
+        padding:20px 0px;
+        margin-top: 5px;
+    }
+    .newsletter-subscription{
+        display: block;
+        padding: 10px 20px;
+    }
+    .subscription-offer{
+        font-size: 30px ;
+        width: 100%;
+    }
+    .newsletter-form-div{
+        width: 100%;
+    }
+    .newsletter-email, .newsletter-submit{
+        width: 100%;
+        padding: 1px 5px;
+        border-radius: 15px;
+    }
+    .newsletter-email, .newsletter-submit{
+        padding: 10px 8px;
+        border: none;
+        font-size: 14px;
+        border-radius: 30px;
+    }
+    .newsletter-submit{
+        width: 100%;
+        font-weight: bolder;
+    }
+    .newsletter-email{
+        width: 96%;
+    }
+    .before-footer{
+        display: block;
+    }
+    .before-footer-box-one{
+        width: 100%;
+    }
+    .responsive-footer-div{
+        display: flex;
+        gap: 40px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .responsive-footer-div div{
+        flex-basis: calc(50% - 25px);
+    }
+    .footer-list{
+        margin: 0;
+        padding: 0;
+    }
+    .footer-page1{
+        display: block;
+        justify-content: center;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+    .payment-divs{
+        justify-content: center;
+        margin-top: 20px;
+      }
+}
