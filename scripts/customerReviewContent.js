@@ -22,7 +22,7 @@ if (productToRender) {
   document.querySelector('.price--discount-price').textContent = `$${(productToRender.discountPriceCent / 100).toFixed(2)}`;
   document.querySelector(".price--discount--former-price").textContent = `$${(productToRender.discountFormerPriceCent / 100).toFixed(2)}`;
   document.querySelector(".price--discount--discount-percentage").textContent = `${productToRender.discountPricePercentage}%`;
-
+  document.title = `${productToRender.name} Description`
   // Show "New Arrival" label ONLY if it's a New Arrival product
   if (selectedProduct) {
     document.querySelector(".new-arrival-li").style.display = "block";

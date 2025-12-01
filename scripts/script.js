@@ -155,11 +155,14 @@ function renderProduct() {
       const productBoxId = parseInt(productBox.dataset.productId);
       console.log(productBoxId);
       const clickedProduct = newArrivalProduct.find(p => p.id === productBoxId); //.find() searches inside the array and gives you back the actual object that meets your condition.
-      console.log(clickedProduct);
+      console.log(clickedProduct.name);
+      
+      
       localStorage.removeItem("selectedRenderProduct");
       localStorage.setItem("selectedProduct", JSON.stringify(clickedProduct));
 
       window.location.href = "product-description.html";
+      
     });
   });
 
@@ -409,3 +412,4 @@ renderingThreeComments();
 // }
 
 // console.log(getUserRole('editor'));
+
