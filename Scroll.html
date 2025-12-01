@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+  <button id="prev">⬅</button>
+
+  <div id="cards" class="cards"></div>
+
+  <button id="next">➡</button>
+</div>
+
+<script>
+  const cards = [
+    "Text 1", "Text 2", "Text 3",
+    "Text 4", "Text 5", "Text 6",
+    "Text 7", "Text 8", "Text 9"
+  ];
+
+  let currentIndex = 0;
+  const itemsPerPage = 3;
+
+  const cardsContainer = document.getElementById('cards');
+  const prevBtn = document.getElementById('prev');
+  const nextBtn = document.getElementById('next');
+
+  function updateCards() {
+    cardsContainer.innerHTML = '';
+
+    const slice = cards.slice(currentIndex, currentIndex + itemsPerPage);
+
+    slice.forEach(text => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerText = text;
+      cardsContainer.appendChild(card);
+    });
+
+    prevBtn.disabled = currentIndex === 0;
+    nextBtn.disabled = currentIndex + itemsPerPage >= cards.length;
+  }
+
+  prevBtn.addEventListener('click', () => {
+    currentIndex -= itemsPerPage;
+    updateCards();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentIndex += itemsPerPage;
+    updateCards();
+  });
+
+  updateCards();
+</script>
+
+<style>
+  .container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .cards {
+    display: flex;
+    gap: 10px;
+  }
+  .card {
+    width: 100px;
+    height: 80px;
+    background: lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    font-weight: bold;
+  }
+</style>
+</body>
+</html>

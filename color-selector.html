@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .product-options {
+  width: 460px;
+  font-family: sans-serif;
+}
+
+.section h4 {
+  margin-bottom: 6px;
+}
+
+.colors, .sizes {
+  display: flex;
+  gap: 10px;
+}
+
+/* Hide default radios */
+input[type="radio"] {
+  display: none;
+}
+
+/* Color circles */
+.color-circle {
+  width: 28px;
+  height: 28px;
+  display: inline-block;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+/* Add ring when selected */
+.color-option input:checked + .color-circle {
+  border-color: black;
+}
+
+/* Size buttons */
+.size-btn span {
+  padding: 6px 14px;
+  border: 2px solid #ccc;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Selected size */
+.size-btn input:checked + span {
+  background: black;
+  color: white;
+  border-color: black;
+}
+
+/* Quantity selector */
+.quantity {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 20px 0;
+}
+
+.qty-btn {
+  width: 28px;
+  height: 28px;
+  font-size: 20px;
+  border-radius: 50%;
+  border: none;
+  background: #eee;
+  cursor: pointer;
+}
+
+.qty-number {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Add to Cart button */
+.add-to-cart {
+  width: 100%;
+  padding: 14px;
+  background: black;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+}
+    </style>
+</head>
+<body>
+    <div class="product-options">
+
+        <!-- Color Picker -->
+        <div class="section">
+          <h4>Select Color</h4>
+          <div class="colors">
+            <label class="color-option">
+              <input type="radio" name="color" checked>
+              <span class="color-circle" style="background: #000;"></span>
+            </label>
+      
+            <label class="color-option">
+              <input type="radio" name="color">
+              <span class="color-circle" style="background: #333;"></span>
+            </label>
+      
+            <label class="color-option">
+              <input type="radio" name="color">
+              <span class="color-circle" style="background: #111;"></span>
+            </label>
+          </div>
+        </div>
+      
+        <!-- Size Picker -->
+        <div class="section">
+          <h4>Choose Size</h4>
+          <div class="sizes">
+            <label class="size-btn">
+              <input type="radio" name="size" checked>
+              <span>Small</span>
+            </label>
+            <label class="size-btn">
+              <input type="radio" name="size">
+              <span>Medium</span>
+            </label>
+            <label class="size-btn">
+              <input type="radio" name="size">
+              <span>Large</span>
+            </label>
+            <label class="size-btn">
+              <input type="radio" name="size">
+              <span>X-Large</span>
+            </label>
+          </div>
+        </div>
+      
+        <!-- Quantity -->
+        <div class="quantity">
+          <button class="qty-btn">−</button>
+          <span class="qty-number">1</span>
+          <button class="qty-btn">+</button>
+        </div>
+      
+        <button class="add-to-cart">Add to Cart</button>
+      
+    </div>
+
+    <input type="color">
+</body>
+</html>
+
