@@ -84,8 +84,8 @@ const casualWearSelection = [{
     rating: 4.5,
     ratingStars: '⭐⭐⭐⭐⭐',
     discountPriceCent: 2660,
-    discountFormerPriceCent: 3210,
-    discountPricePercentage: 30
+    // discountFormerPriceCent: 3210,
+    // discountPricePercentage: 30
 },{
     name: "T-Shirt with tape detail",
     image: "icons/IMG-20251028-WA0224.jpg",
@@ -126,7 +126,7 @@ casualWearSelection.forEach((casuals) => {
     causalWears += `
     <div class="product-container--casual">
         <div class="product-image-container">
-            <img src="${casuals.image}" class="product-image--casual">
+            <img src="${casuals.image}" class="product-image--casual product-image-casual-media-query">
         </div>
         <h5 class="product-name--casual">${casuals.name}</h5>
         <p class="rating">${casuals.ratingStars} ${casuals.rating}</p>

@@ -89,6 +89,21 @@
     margin: 0;
 }
 
+.product-image-casual-media-query {
+  /* 
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+  margin-bottom: 0px; */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 8px;
+  
+}
   .product-image--casual {
     /* Images will overflow their container by default. To
       prevent this, we set max-width and max-height to 100%
@@ -147,8 +162,7 @@
   }
 
   .casuals--products-displays{
-    /* display: grid;
-    grid-template-columns: repeat(4, 1fr); */
+    /* display: none; */
     justify-items: center;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
