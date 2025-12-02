@@ -52,11 +52,13 @@
     height: 485px;
 }
 .products-pictures-image-container{
+    
     display: flex;
     flex-direction: column;
+    order: 1;
     width: 140px;
     height: 163px;
-    border: 2px solid black;
+    border: 1px solid black;
     margin-bottom: 5px;
     border-radius: 30px;
     overflow: hidden;
@@ -66,8 +68,10 @@
     max-height: 100%;
 }
 .products-pictures-big-display{
+    
     display: flex;
     flex-direction: column;
+    order: 2;
     width: 500px;
     height: 100%;
     margin-left: 10px;
@@ -195,9 +199,12 @@
 
 
 
-
+.TYML-whole-container{
+  display: none;
+}
 
   .product-description--second--container{
+    /* display: none; */
     margin-top: 30px;
   }
   .products-detail-review-faqs{
@@ -245,9 +252,6 @@
 
 
 
-  .reviews{
-    display: block;
-  }
   .reviews-contents{
     display: grid;
     grid-template-columns: 1fr 1fr;
