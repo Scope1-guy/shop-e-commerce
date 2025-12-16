@@ -138,9 +138,18 @@
                 <!-- Quantity -->
                 <div class="quantity--plus--cart-btn">
                     <div class="quantity">
-                        <button class="qty-btn">−</button>
-                        <span class="qty-number" >1</span>
-                        <button class="qty-btn">+</button>
+                      <select class="product-quality-picker">
+                        <option selected-value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                      </select>
                     </div>
 
                     <div class="add--to--cart--box">
@@ -156,14 +165,16 @@
 
     <div class="product-description--second--container">
         <div class="products-detail-review-faqs">
-            <div class="p-details-head">Product Details</div>
-            <div class="p-rating-head">Rating & Reviews</div>
-            <div class="p-faq-head">FAQs</div>
+            <div class="p-details-head product-describe-etc-header">Product Details</div>
+            <div class="p-rating-head product-describe-etc-header">Rating & Reviews</div>
+            <div class="p-faq-head product-describe-etc-header">FAQs</div>
         </div>
 
+        <div class="product-full-detail-box product-describe-etc-contents">
+        </div>
 
         
-        <div class="reviews">
+        <div class="reviews product-describe-etc-contents">
             <div class="reviews-headings">
                 <h3 class="all-review-header-text">All Reviews <span>(451)</span></h3>
     
@@ -171,6 +182,21 @@
                     <button class="review-latest-btn">Latest ></button>
                     <button class="review-write-btn">Write a Review</button>
                 </div>
+
+                <dialog class="review-dialog-display">
+                  <div class="review-form-box">
+                    <div class="modal-header">
+                      <h4 class="review-dialog-header">Write your review</h4>
+                      <button class="modal-close-btn">X</button>
+                    </div>
+                    <form class="review-form-inputs-box">
+                      <input type="text" placeholder="First Name" class="reviewer-first-name"><br><br>
+                      <input type="text" placeholder="Last Name" class="reviewer-last-name"><br><br>
+                      <input type="text" placeholder="Write your review" class="reviewer--review">
+                      <button type="submit" class="review-submit-btn">Submit</button>
+                    </form>
+                  </div>
+                </dialog>
             </div>
 
 
@@ -185,7 +211,7 @@
 
         </div>
         
-        <div class="frequently-asked-questions">
+        <div class="frequently-asked-questions product-describe-etc-contents">
             <div class="faq--over--box">
                 <div class="faq-box">
                     <div class="faq--plus--question">

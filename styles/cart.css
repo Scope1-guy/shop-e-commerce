@@ -4,7 +4,7 @@
 .cart--and--order--summary-container{
     display: flex;
     gap: 20px;
-    
+    align-items: flex-start;
 }
 .cart-product-container{
     width: auto;
@@ -17,6 +17,7 @@
     border-radius: 30px;
     border: 1px solid black;
     width: 100%;
+    height: auto;
 }
 .cart-image-container{
     display: flex;
@@ -51,8 +52,9 @@
 .cart-product-price-quantity{
     display: flex;
     align-items: center;
-    gap: 650px;
+    gap: 500px;
     justify-content: space-between;
+    font-weight: bolder;
 }
 
 .order-summary-title{

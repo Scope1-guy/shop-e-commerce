@@ -101,8 +101,8 @@ body{
   }
   .brands-logos{
     background-color: black;
-    display: none;
-    /* display: flex; */
+    /* display: none; */
+    display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 0px;
@@ -143,6 +143,7 @@ width: 100%;          /* makes sure it’s responsive */
   padding: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease;
+  cursor: pointer;
 }
 .product-container:hover, .product-containers:hover{
   transform: scale(1.05);

@@ -88,6 +88,9 @@ addToCartBtn.addEventListener("click", () => {
     return;
   }
 
+  // ✅ DEFINE productPrice ONCE (this was missing)
+  const productPrice = Number(productToAdd.discountPrice || productToAdd.price);
+
   // Get existing cart from localStorage or empty array if none
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -97,15 +100,20 @@ addToCartBtn.addEventListener("click", () => {
   if (existingProductIndex !== -1) {
     // If product already exists, increase quantity
     cart[existingProductIndex].quantity += 1;
+
+    cart[existingProductIndex].totalPrice =
+      cart[existingProductIndex].unitPrice *
+      cart[existingProductIndex].quantity;
+
   } else {
     // Otherwise, add product with quantity = 1
     cart.push({
       id: productToAdd.id,
       productImage: productToAdd.image,
       productName: productToAdd.name,
-      productPrice: (productToAdd.discountPriceCent / 100).toFixed(2),
+      unitPrice: productPrice,
       quantity: 1,
-      // Optional: size/color can be added later
+      totalPrice: productPrice
     });
   }
 
@@ -114,6 +122,32 @@ addToCartBtn.addEventListener("click", () => {
 
   alert("Product added to cart!");
 });
+
+
+
+
+// const now = new Date();
+// console.log(now);
+
+
+  // product section header accordion open and close
+
+const headers = document.querySelectorAll(".product-describe-etc-header");
+const contents = document.querySelectorAll(".product-describe-etc-contents");
+
+headers.forEach((header, index) => {
+  header.addEventListener("click", () => {
+
+    // Hide all contents
+    contents.forEach(content => {
+      content.style.display = "none";
+    });
+
+    // Show the matching content
+    contents[index].style.display = "block";
+  });
+});
+
 
 
 
@@ -188,38 +222,11 @@ const productReviewsContent = [{
     fabric feels so comfortable.As a fellow designer, I appreciate the attention
     to detail. It's become my favorite go-to-shirt.`,
     writeUpDate: "Posted on August 14, 2023"
-  },{
-    rating: "⭐⭐⭐⭐⭐",
-    writerName: "Samantha D.",
-    writeUpContent: `I absolutely love this t-shirt! The design is unique and the
-    fabric feels so comfortable.As a fellow designer, I appreciate the attention
-    to detail. It's become my favorite go-to-shirt.`,
-    writeUpDate: "Posted on August 14, 2023"
-  },{
-    rating: "⭐⭐⭐⭐⭐",
-    writerName: "Samantha D.",
-    writeUpContent: `I absolutely love this t-shirt! The design is unique and the
-    fabric feels so comfortable.As a fellow designer, I appreciate the attention
-    to detail. It's become my favorite go-to-shirt.`,
-    writeUpDate: "Posted on August 14, 2023"
-  },{
-    rating: "⭐⭐⭐⭐⭐",
-    writerName: "Samantha D.",
-    writeUpContent: `I absolutely love this t-shirt! The design is unique and the
-    fabric feels so comfortable.As a fellow designer, I appreciate the attention
-    to detail. It's become my favorite go-to-shirt.`,
-    writeUpDate: "Posted on August 14, 2023"
-  },{
-    rating: "⭐⭐⭐⭐⭐",
-    writerName: "Samantha D.",
-    writeUpContent: `I absolutely love this t-shirt! The design is unique and the
-    fabric feels so comfortable.As a fellow designer, I appreciate the attention
-    to detail. It's become my favorite go-to-shirt.`,
-    writeUpDate: "Posted on August 14, 2023"
   },]
   
   let reviewContentVisible = 6;
   const reviewLoader = document.querySelector('.review-loader');
+
 
   function renderReview() {
 
@@ -328,3 +335,41 @@ document.querySelector('.TYML-product-container').innerHTML = contentsInYYMLHTML
 
   // console.log(contentsInYYMLHTML);
 
+
+// review button
+
+const reviewBoxModal = document.querySelector('.review-dialog-display');
+const reviewBtn = document.querySelector('.review-write-btn');
+const closeBtnPlusSubmit = document.querySelector('.review-submit-btn');
+const reviewFormBox = document.querySelector('.review-form-inputs-box');
+const reviewerFirstName = document.querySelector('.reviewer-first-name');
+const reviewerLastName = document.querySelector('.reviewer-last-name');
+const reviewerText = document.querySelector('.reviewer--review');
+
+
+reviewBtn.addEventListener('click', () => {
+  reviewBoxModal.showModal();
+  console.log('button is working')
+})
+
+closeBtnPlusSubmit.addEventListener('click', (e) => {
+  e.preventDefault();
+  const reviewArray = {
+    rating: "⭐⭐⭐⭐⭐",
+    writerName: reviewerFirstName.value + " " + reviewerLastName.value ,
+    writeUpContent: reviewerText.value,
+    writeUpDate: `Posted on ${new Date()}`
+  }
+
+  productReviewsContent.unshift(reviewArray);
+
+  reviewBoxModal.close()
+
+  reviewerFirstName.value = "";
+  reviewerLastName.value = "";
+  reviewerText.value = "";
+});
+
+document.querySelector('.modal-close-btn').addEventListener('click', () => {
+  reviewBoxModal.close()
+})
