@@ -19,8 +19,8 @@ if (productToRender) {
   document.querySelector(".products-pictures-big-display-image").src = productToRender.image;
   document.querySelector(".one-life-title").textContent = productToRender.name;
   document.querySelector(".product---cart--rating").textContent = `${productToRender.ratingStars} ${productToRender.rating}`;
-  document.querySelector('.price--discount-price').textContent = `$${(productToRender.discountPriceCent / 100).toFixed(2)}`;
-  document.querySelector(".price--discount--former-price").textContent = `$${(productToRender.discountFormerPriceCent / 100).toFixed(2)}`;
+  document.querySelector('.price--discount-price').textContent = `$${productToRender.discountPriceCent}`;
+  document.querySelector(".price--discount--former-price").textContent = `$${productToRender.discountFormerPriceCent }`;
   document.querySelector(".price--discount--discount-percentage").textContent = `${productToRender.discountPricePercentage}%`;
   document.title = `${productToRender.name} Description`
   // Show "New Arrival" label ONLY if it's a New Arrival product
@@ -35,75 +35,41 @@ if (productToRender) {
 
 // // ADD TO CART FEATURE
 
-// // Add to Cart functionality
-// const addToCartBtn = document.querySelector(".add-to-cart");
-// addToCartBtn.addEventListener("click", () => {
-
-//   // Get existing cart from localStorage or empty array if none
-//   let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-//   // Check if product is already in cart
-//   const existingProductIndex = cart.findIndex(item => item.id === selectedProduct.id);
-
-//   if (existingProductIndex !== -1) {
-//     // If product already exists, increase quantity
-//     cart[existingProductIndex].quantity += 1;
-//   } else {
-//     // Otherwise, add product with quantity = 1
-//     cart.push({
-//       id: selectedProduct.id,
-//       productImage: selectedProduct.image,
-//       productName: selectedProduct.name,
-//       productPrice: (selectedProduct.discountPriceCent / 100).toFixed(2),
-//       quantity: 1,
-//       // Optional: you can add size/color later if your review page allows
-//     });
-//   }
-
-//   // Save cart back to localStorage
-//   localStorage.setItem("cart", JSON.stringify(cart));
-
-//   alert("Product added to cart!");
-// });
-
-
-
-
 // REVIEWS DISPLAY
 
 
 // Add to Cart functionality
+
 const addToCartBtn = document.querySelector(".add-to-cart");
+const selectQuantityElement = document.querySelector('.product-quality-picker');
 
 addToCartBtn.addEventListener("click", () => {
+  const selectQuantityElementValue = Number(selectQuantityElement.value);
+  console.log(selectQuantityElementValue);
+
   // Determine the active product (New Arrival or Top Selling)
   const selectedProductActive = JSON.parse(localStorage.getItem("selectedProduct"));
   const selectedRenderProductActive = JSON.parse(localStorage.getItem("selectedRenderProduct"));
 
   // Pick whichever exists
   const productToAdd = selectedProductActive || selectedRenderProductActive;
+  // console.log(productToAdd);
 
   if (!productToAdd) {
     alert("No product selected to add to cart!");
     return;
   }
 
-  // ✅ DEFINE productPrice ONCE (this was missing)
-  const productPrice = Number(productToAdd.discountPrice || productToAdd.price);
-
   // Get existing cart from localStorage or empty array if none
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-  // Check if product is already in cart
+  // // Check if product is already in cart
   const existingProductIndex = cart.findIndex(item => item.id === productToAdd.id);
 
   if (existingProductIndex !== -1) {
     // If product already exists, increase quantity
-    cart[existingProductIndex].quantity += 1;
-
-    cart[existingProductIndex].totalPrice =
-      cart[existingProductIndex].unitPrice *
-      cart[existingProductIndex].quantity;
+    cart[existingProductIndex].quantity += selectQuantityElementValue;
+    // cart[existingProductIndex].productPrice += productPrice;
 
   } else {
     // Otherwise, add product with quantity = 1
@@ -111,9 +77,8 @@ addToCartBtn.addEventListener("click", () => {
       id: productToAdd.id,
       productImage: productToAdd.image,
       productName: productToAdd.name,
-      unitPrice: productPrice,
-      quantity: 1,
-      totalPrice: productPrice
+      productPrice: productToAdd.discountPriceCent * selectQuantityElementValue,
+      quantity: selectQuantityElementValue,
     });
   }
 
@@ -368,6 +333,7 @@ closeBtnPlusSubmit.addEventListener('click', (e) => {
   reviewerFirstName.value = "";
   reviewerLastName.value = "";
   reviewerText.value = "";
+  // location.reload();
 });
 
 document.querySelector('.modal-close-btn').addEventListener('click', () => {

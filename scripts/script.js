@@ -4,8 +4,8 @@ const newArrivalProduct = [{
   image: "icons/IMG-20251028-WA0224.jpg",
   rating: 4.5,
   ratingStars: '⭐⭐⭐⭐⭐',
-  discountPriceCent: 2660,
-  discountFormerPriceCent: 3210,
+  discountPriceCent: decimalFixing (2660),
+  discountFormerPriceCent: decimalFixing (3210),
   discountPricePercentage: 30
 },{
   id: 2,
@@ -13,8 +13,8 @@ const newArrivalProduct = [{
   image: "Amazon Project_files/adults-plain-cotton-tshirt-2-pack-teal.jpg",
   rating: 4.5,
   ratingStars: '⭐⭐⭐',
-  discountPriceCent: 546,
-  discountFormerPriceCent: 321,
+  discountPriceCent: decimalFixing (546),
+  discountFormerPriceCent: decimalFixing (321),
   discountPricePercentage: 40
 },{
   id: 3,
@@ -22,8 +22,8 @@ const newArrivalProduct = [{
   image: "Amazon Project_files/men-golf-polo-t-shirt-blue.jpg",
   rating: 4.5,
   ratingStars: '⭐⭐⭐⭐',
-  discountPriceCent: 566,
-  discountFormerPriceCent: 1741,
+  discountPriceCent: decimalFixing (566),
+  discountFormerPriceCent: decimalFixing (1741),
   discountPricePercentage: 10
 },{
   id: 4,
@@ -32,8 +32,8 @@ const newArrivalProduct = [{
   rating: 4.5,
   ratingStars: '⭐⭐⭐⭐',
 
-  discountPriceCent: 2260,
-  discountFormerPriceCent: 3901,
+  discountPriceCent: decimalFixing (2260),
+  discountFormerPriceCent: decimalFixing (3901),
   discountPricePercentage: 60
 },{
   id: 5,
@@ -41,9 +41,8 @@ const newArrivalProduct = [{
   image: "Amazon Project_files/women-chunky-beanie-gray.webp",
   rating: 4.5,
   ratingStars: '⭐⭐⭐⭐⭐',
-  priceCent: 266,
-  discountPriceCent: 266,
-  discountFormerPriceCent: 321,
+  discountPriceCent: decimalFixing (266),
+  discountFormerPriceCent: decimalFixing (321),
   discountPricePercentage: -30
 },{
   id: 6,
@@ -51,9 +50,8 @@ const newArrivalProduct = [{
   image: "Amazon Project_files/round-sunglasses-black.jpg",
   rating: 4.5,
   ratingStars: '⭐⭐⭐⭐',
-  priceCent: 266,
-  discountPriceCent: 266,
-  discountFormerPriceCent: 321,
+  discountPriceCent: decimalFixing (266),
+  discountFormerPriceCent: decimalFixing (321),
   discountPricePercentage: -30
 },{
   id: 7,
@@ -61,9 +59,8 @@ const newArrivalProduct = [{
   image: "icons/IMG-20251028-WA0224.jpg",
   rating: 4.5,
   ratingStars: '⭐⭐⭐⭐',
-  priceCent: 266,
-  discountPriceCent: 266,
-  discountFormerPriceCent: 321,
+  discountPriceCent: decimalFixing (266),
+  discountFormerPriceCent: decimalFixing (321),
   discountPricePercentage: -30
 },{
   id:8,
@@ -71,9 +68,8 @@ const newArrivalProduct = [{
   image: "icons/IMG-20251028-WA0224.jpg",
   rating: 4.5,
   ratingStars: '⭐⭐⭐⭐⭐',
-  priceCent: 266,
-  discountPriceCent: 266,
-  discountFormerPriceCent: 321,
+  discountPriceCent: decimalFixing (266),
+  discountFormerPriceCent: decimalFixing (321),
   discountPricePercentage: -30
 },{
   id: 9,
@@ -81,9 +77,8 @@ const newArrivalProduct = [{
   image: "icons/IMG-20251028-WA0224.jpg",
   rating: 2.5,
   ratingStars: '⭐⭐',
-  priceCent: 266,
-  discountPriceCent: 266,
-  discountFormerPriceCent: 321,
+  discountPriceCent: decimalFixing (266),
+  discountFormerPriceCent: decimalFixing (321),
   discountPricePercentage: -30
 },{
   id: 10,
@@ -91,9 +86,8 @@ const newArrivalProduct = [{
   image: "icons/IMG-20251028-WA0224.jpg",
   rating: 4.5,
   ratingStars: '⭐⭐⭐⭐',
-  priceCent: 266,
-  discountPriceCent: 266,
-  discountFormerPriceCent: 321,
+  discountPriceCent: decimalFixing (266),
+  discountFormerPriceCent: decimalFixing (321),
   discountPricePercentage: -30
 },{
   id: 11,
@@ -101,9 +95,8 @@ const newArrivalProduct = [{
   image: "icons/IMG-20251028-WA0224.jpg",
   rating: 4.5,
   ratingStars: '⭐⭐⭐⭐⭐',
-  priceCent: 266,
-  discountPriceCent: 266,
-  discountFormerPriceCent: 321,
+  discountPriceCent: decimalFixing (266),
+  discountFormerPriceCent: decimalFixing (321),
   discountPricePercentage: -30
 },{
   id: 12,
@@ -111,8 +104,8 @@ const newArrivalProduct = [{
   image: "icons/IMG-20251028-WA0224.jpg",
   rating: 4.5,
   ratingStars: '⭐⭐⭐⭐',
-  discountPriceCent: 1206,
-  discountFormerPriceCent: 1921,
+  discountPriceCent: decimalFixing (1206),
+  discountFormerPriceCent: decimalFixing (1921),
   discountPricePercentage: 20
 }];
 
@@ -134,8 +127,8 @@ function renderProduct() {
         <h5 class="product-name">${product.name}</h5>
         <p class="rating">${product.ratingStars} ${product.rating}</p>
         <div class="product--cart--price--discounts--newArrival">
-            <p class="product-price">$${(product.discountPriceCent / 100).toFixed(2)}</p>
-            <p class="price--discount--former-price--newArrival">$${(product.discountFormerPriceCent/100).toFixed(2)}</p>
+            <p class="product-price">$${product.discountPriceCent}</p>
+            <p class="price--discount--former-price--newArrival">$${product.discountFormerPriceCent}</p>
             <p class="price--discount--discount-percentage--newArrival">-${product.discountPricePercentage}%</p>
         </div>
       </div>
@@ -155,7 +148,7 @@ function renderProduct() {
       const productBoxId = parseInt(productBox.dataset.productId);
       console.log(productBoxId);
       const clickedProduct = newArrivalProduct.find(p => p.id === productBoxId); //.find() searches inside the array and gives you back the actual object that meets your condition.
-      console.log(clickedProduct.name);
+      console.log(clickedProduct.name, clickedProduct.discountPriceCent);
       
       
       localStorage.removeItem("selectedRenderProduct");
@@ -196,8 +189,8 @@ const topSellingProduct = [{
   image: "Amazon Project_files/athletic-cotton-socks-6-pairs.jpg",
   ratingStars: '⭐⭐⭐⭐',
   rating: 4.5,
-  discountPriceCent: 2660,
-  discountFormerPriceCent: 3210,
+  discountPriceCent: decimalFixing (2660),
+  discountFormerPriceCent: decimalFixing (3210),
   discountPricePercentage: 30
 },{
   id: 2000,
@@ -205,8 +198,8 @@ const topSellingProduct = [{
   image: "icons/IMG-20251028-WA0224.jpg",
   ratingStars: '⭐⭐⭐⭐',
   rating: 4.5,
-  discountPriceCent: 2660,
-  discountFormerPriceCent: 3210,
+  discountPriceCent: decimalFixing (2660),
+  discountFormerPriceCent: decimalFixing (3210),
   discountPricePercentage: 30
 },{
   id: 3000,
@@ -214,8 +207,8 @@ const topSellingProduct = [{
   image: "Amazon Project_files/knit-athletic-sneakers-pink.webp",
   ratingStars: '⭐⭐⭐⭐',
   rating: 4.5,
-  discountPriceCent: 2660,
-  discountFormerPriceCent: 3210,
+  discountPriceCent: decimalFixing (2660),
+  discountFormerPriceCent: decimalFixing (3210),
   discountPricePercentage: 30
 },{
   id: 4000,
@@ -223,8 +216,8 @@ const topSellingProduct = [{
   image: "icons/IMG-20251028-WA0224.jpg",
   ratingStars: '⭐⭐⭐⭐',
   rating: 4.5,
-  discountPriceCent: 2660,
-  discountFormerPriceCent: 3210,
+  discountPriceCent: decimalFixing (2660),
+  discountFormerPriceCent: decimalFixing (3210),
   discountPricePercentage: 30
 },{
   id: 5000,
@@ -232,8 +225,8 @@ const topSellingProduct = [{
   image: "icons/IMG-20251028-WA0224.jpg",
   ratingStars: '⭐⭐⭐⭐',
   rating: 4.5,
-  discountPriceCent: 2660,
-  discountFormerPriceCent: 3210,
+  discountPriceCent: decimalFixing (2660),
+  discountFormerPriceCent: decimalFixing (3210),
   discountPricePercentage: 30
 },{
   id: 6000,
@@ -241,8 +234,8 @@ const topSellingProduct = [{
   image: "icons/IMG-20251028-WA0224.jpg",
   ratingStars: '⭐⭐⭐⭐',
   rating: 4.5,
-  discountPriceCent: 2660,
-  discountFormerPriceCent: 3210,
+  discountPriceCent: decimalFixing (2660),
+  discountFormerPriceCent: decimalFixing (3210),
   discountPricePercentage: 30
 }];
 
@@ -264,8 +257,8 @@ function renderTopSelling() {
         <h5 class="product-name">${topProduct.name}</h5>
         <p class="rating">${topProduct.ratingStars} ${topProduct.rating}</p>
         <div class="product--cart--price--discounts--newArrival">
-            <p class="product-price">$${(topProduct.discountPriceCent / 100).toFixed(2)}</p>
-            <p class="price--discount--former-price--newArrival">$${(topProduct.discountFormerPriceCent/100).toFixed(2)}</p>
+            <p class="product-price">$${topProduct.discountPriceCent}</p>
+            <p class="price--discount--former-price--newArrival">$${topProduct.discountFormerPriceCent}</p>
             <p class="price--discount--discount-percentage--newArrival">-${topProduct.discountPricePercentage}%</p>
         </div>
       </div>
@@ -413,3 +406,8 @@ renderingThreeComments();
 
 // console.log(getUserRole('editor'));
 
+
+
+function decimalFixing (fix) {
+  return (fix / 100).toFixed(2)
+};
