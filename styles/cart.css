@@ -52,7 +52,7 @@
 .cart-product-price-quantity{
     display: flex;
     align-items: center;
-    gap: 500px;
+    gap: 400px;
     justify-content: space-between;
     font-weight: bolder;
 }
@@ -79,10 +79,11 @@
     margin-bottom: 25px;
 }
 .promo-code-inputs{
-    width: 100%;
+    display: flex;
+    gap: 5px;
 }
 .promo-code-input{
-    width: 80%;
+    width: 100%;
     padding: 15px;
     border-radius: 30px;
     border: 1px solid black;
@@ -91,12 +92,18 @@
     padding: 15px 29px;
     border-radius: 30px;
     border: 1px solid black;
+    width: 20%;
+    font-size: 17px;
+    font-weight: 600;
 }
 .checkout--button{
     width: 100%;
     padding: 15px;
     border-radius: 30px;
     border: none;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
 }
 .cart-size--color p{
     margin: 0;

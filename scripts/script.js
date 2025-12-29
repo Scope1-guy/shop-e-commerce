@@ -1,3 +1,24 @@
+const searchBar = document.querySelector('.search-input');
+
+if (searchBar) {
+  searchBar.addEventListener('input', (e) => {
+    const searchWord = e.target.value.toLowerCase();
+    filterProducts(searchWord);
+  });
+}
+
+const filterProducts = (searchTerm) => {
+  const filteredProduct = newArrivalProduct.filter((product) => {
+    return (
+      product.name.toLowerCase().includes(searchTerm) ||
+      String(product.price).includes(searchTerm)
+    );
+  });
+
+  console.log(filteredProduct); // replace with render logic
+};
+
+
 const newArrivalProduct = [{
   id: 1,
   name: "T-Shirt with tape detail",
@@ -158,7 +179,6 @@ function renderProduct() {
       
     });
   });
-
 }
 
 // When button is clicked

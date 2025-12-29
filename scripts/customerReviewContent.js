@@ -40,62 +40,185 @@ if (productToRender) {
 
 // Add to Cart functionality
 
+// const addToCartBtn = document.querySelector(".add-to-cart");
+// const selectQuantityElement = document.querySelector('.product-quality-picker');
+
+// addToCartBtn.addEventListener("click", () => {
+//   const selectQuantityElementValue = Number(selectQuantityElement.value);
+
+//   // if (!quantityToAdd || quantityToAdd < 1) return; // if the picked number/value is not a valid number like 0 or w
+
+
+
+//   // Determine the active product (New Arrival or Top Selling)
+//   const selectedProductActive = JSON.parse(localStorage.getItem("selectedProduct"));
+//   const selectedRenderProductActive = JSON.parse(localStorage.getItem("selectedRenderProduct"));
+
+
+//   // Pick whichever exists
+//   const productToAdd = selectedProductActive || selectedRenderProductActive;
+
+//   if (!productToAdd) {
+//     alert("No product selected to add to cart!");
+//     return;
+//   }
+
+//   // Get existing cart from localStorage or empty array if none
+//   getCart(cart);
+  
+
+//   // Check if product is already in cart
+//   const existingProductIndex = cart.findIndex(item => item.id === productToAdd.id);
+
+//   // ✅ ADD: store unit price once
+//   const unitPrice = productToAdd.discountPriceCent;
+
+//   if (existingProductIndex !== -1) {
+//     // If product already exists, increase quantity
+//     cart[existingProductIndex].quantity += selectQuantityElementValue;
+
+//     // ✅ ADD: recalculate total price
+//     cart[existingProductIndex].productPrice =
+//       cart[existingProductIndex].unitPrice *
+//       cart[existingProductIndex].quantity;
+
+//   } else {
+//     // Otherwise, add product
+//     cart.push({
+//       id: productToAdd.id,
+//       productImage: productToAdd.image,
+//       productName: productToAdd.name,
+
+//       // ✅ ADD
+//       unitPrice: unitPrice,
+
+//       // EXISTING
+//       quantity: selectQuantityElementValue,
+
+//       // ✅ CHANGE: total price, not multiplied forever
+//       productPrice:  unitPrice * selectQuantityElementValue
+//     });
+//   }
+
+//   // Save cart back to localStorage
+//   saveCart()
+
+//   alert("Product added to cart!");
+// });
+
+
+// function getCart(cart) {
+//   // let cart = 
+//   JSON.parse(localStorage.getItem("cart")) || [];
+// }
+
+// function saveCart() {
+//   localStorage.setItem("cart", JSON.stringify(cart));
+// }
+
+
+// REWRITING THE ADD TO CART FUNCTIONALITY LIKE A SENIOR DEV AND CLEANER
+
+// ==============================
+// DOM REFERENCES
+// ==============================
 const addToCartBtn = document.querySelector(".add-to-cart");
-const selectQuantityElement = document.querySelector('.product-quality-picker');
+const quantityPicker = document.querySelector(".product-quality-picker");
 
-addToCartBtn.addEventListener("click", () => {
-  const selectQuantityElementValue = Number(selectQuantityElement.value);
-  console.log(selectQuantityElementValue);
+// ==============================
+// CONSTANTS
+// ==============================
+const CART_STORAGE_KEY = "cart";
+const ACTIVE_PRODUCT_KEYS = [
+  "selectedProduct",
+  "selectedRenderProduct",
+];
 
-  // Determine the active product (New Arrival or Top Selling)
-  const selectedProductActive = JSON.parse(localStorage.getItem("selectedProduct"));
-  const selectedRenderProductActive = JSON.parse(localStorage.getItem("selectedRenderProduct"));
+// ==============================
+// EVENT HANDLER
+// ==============================
+addToCartBtn.addEventListener("click", handleAddToCart);
 
-  // Pick whichever exists
-  const productToAdd = selectedProductActive || selectedRenderProductActive;
-  // console.log(productToAdd);
+// ==============================
+// HANDLERS
+// ==============================
+function handleAddToCart() {
+  const quantity = Number(quantityPicker.value);
 
-  if (!productToAdd) {
-    alert("No product selected to add to cart!");
+  if (!isValidQuantity(quantity)) {
+    alert("Please select a valid quantity.");
     return;
   }
 
-  // Get existing cart from localStorage or empty array if none
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-  // // Check if product is already in cart
-  const existingProductIndex = cart.findIndex(item => item.id === productToAdd.id);
-
-  if (existingProductIndex !== -1) {
-    // If product already exists, increase quantity
-    cart[existingProductIndex].quantity += selectQuantityElementValue;
-    // cart[existingProductIndex].productPrice += productPrice;
-
-  } else {
-    // Otherwise, add product with quantity = 1
-    cart.push({
-      id: productToAdd.id,
-      productImage: productToAdd.image,
-      productName: productToAdd.name,
-      productPrice: productToAdd.discountPriceCent * selectQuantityElementValue,
-      quantity: selectQuantityElementValue,
-    });
+  const product = getActiveProduct();
+  if (!product) {
+    alert("No product selected to add to cart.");
+    return;
   }
 
-  // Save cart back to localStorage
-  localStorage.setItem("cart", JSON.stringify(cart));
+  const cart = getCart();
+  upsertCartItem(cart, product, quantity);
+  saveCart(cart);
 
   alert("Product added to cart!");
-});
+}
+
+// ==============================
+// CART OPERATIONS
+// ==============================
+function upsertCartItem(cart, product, quantityToAdd) {
+  const existingItem = cart.find(item => item.id === product.id);
+  const unitPrice = product.discountPriceCent;
+
+  if (existingItem) {
+    existingItem.quantity += quantityToAdd;
+    existingItem.productPrice = existingItem.unitPrice * existingItem.quantity;
+    return;
+  }
+
+  cart.push(createCartItem(product, quantityToAdd, unitPrice));
+}
+
+function createCartItem(product, quantity, unitPrice) {
+  return {
+    id: product.id,
+    productImage: product.image,
+    productName: product.name,
+    unitPrice,
+    quantity,
+    productPrice: unitPrice * quantity,
+  };
+}
+
+// ==============================
+// STORAGE HELPERS
+// ==============================
+function getCart() {
+  return JSON.parse(localStorage.getItem(CART_STORAGE_KEY)) || [];
+}
+
+function saveCart(cart) {
+  localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+}
+
+function getActiveProduct() {
+  for (const key of ACTIVE_PRODUCT_KEYS) {
+    const product = JSON.parse(localStorage.getItem(key));
+    if (product) return product;
+  }
+  return null;
+}
+
+// ==============================
+// VALIDATION
+// ==============================
+function isValidQuantity(value) {
+  return Number.isInteger(value) && value > 0;
+}
 
 
+// SECTION VIEWS
 
-
-// const now = new Date();
-// console.log(now);
-
-
-  // product section header accordion open and close
 
 const headers = document.querySelectorAll(".product-describe-etc-header");
 const contents = document.querySelectorAll(".product-describe-etc-contents");
