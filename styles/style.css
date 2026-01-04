@@ -71,6 +71,7 @@ body{
     color: white;
     border: none;
     border-radius: 30px;
+    font-weight: 700;
   }
   .main-page{
     display: flex;
@@ -113,14 +114,14 @@ body{
     filter: invert(1);
   }
   .new-arrivals-products, .top-selling-products{
-display: grid;
-grid-template-columns: repeat(4, 1fr);
-gap: 70px;
-justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 70px;
+    justify-content: center;
 
-max-width: 1000px;   /* 👈 controls total grid width */
-margin: 0 auto;       /* 👈 centers it horizontally */
-width: 100%;          /* makes sure it’s responsive */
+    max-width: 1000px;   /* 👈 controls total grid width */
+    margin: 0 auto;       /* 👈 centers it horizontally */
+    width: 100%;          /* makes sure it’s responsive */
 }
 
 .product-container, .product-containers {
@@ -262,7 +263,6 @@ width: 100%;          /* makes sure it’s responsive */
     overflow: hidden;
     border: 2px solid black;
     border-radius: 20px;
-    position: relative;
   }
   .style-picture1{
     height: 100%;
@@ -293,6 +293,7 @@ width: 100%;          /* makes sure it’s responsive */
   .back-next-btns{
     display: flex;
     align-items: center;
+    gap: 2px;
   }
   .our-h-customer{
     font-size: 58px;
@@ -302,6 +303,7 @@ width: 100%;          /* makes sure it’s responsive */
   .happy-customer-back-btn, .happy-customer-next-btn{
     font-size: 50px;
     margin: 0;
+    padding: 0;
   }
   .customers-comments{
     margin-top: 30px;

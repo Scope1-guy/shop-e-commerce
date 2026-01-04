@@ -8,7 +8,7 @@ if (searchBar) {
 }
 
 const filterProducts = (searchTerm) => {
-  const filteredProduct = newArrivalProduct.filter((product) => {
+  const filteredProduct = combinedProducts.filter((product) => {
     return (
       product.name.toLowerCase().includes(searchTerm) ||
       String(product.price).includes(searchTerm)
@@ -17,6 +17,7 @@ const filterProducts = (searchTerm) => {
 
   console.log(filteredProduct); // replace with render logic
 };
+
 
 
 const newArrivalProduct = [{
@@ -321,7 +322,8 @@ function renderTopSelling() {
 renderTopSelling()
 
 
-
+const combinedProducts = [...newArrivalProduct, ...topSellingProduct]
+console.log(combinedProducts)
 
 
 

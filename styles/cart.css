@@ -52,7 +52,7 @@
 .cart-product-price-quantity{
     display: flex;
     align-items: center;
-    gap: 400px;
+    gap: 500px;
     justify-content: space-between;
     font-weight: bolder;
 }
