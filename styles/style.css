@@ -295,6 +295,9 @@ body{
     align-items: center;
     gap: 2px;
   }
+  .back-next-btns p:hover{
+    cursor: pointer;
+  }
   .our-h-customer{
     font-size: 58px;
     margin: 0;

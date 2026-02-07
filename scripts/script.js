@@ -18,7 +18,20 @@ const filterProducts = (searchTerm) => {
   console.log(filteredProduct); // replace with render logic
 };
 
+// Show Now Scroll Functionality
+const shopNowBtn = document.querySelector(".main-shop-now-btn");
+const newArrivalSection = document.querySelector(".new-arrivals-display");
+const navNewArrivalHref = document.querySelector(".navNewArrival")
+const scrollImplementationForNewArrivals = () => {
+  const postCoords = newArrivalSection.getBoundingClientRect();
 
+  console.log(postCoords);
+
+  newArrivalSection.scrollIntoView({behavior: "smooth"});
+} 
+
+shopNowBtn.addEventListener('click', scrollImplementationForNewArrivals);
+navNewArrivalHref.addEventListener('click', scrollImplementationForNewArrivals);
 
 const newArrivalProduct = [{
   id: 1,
